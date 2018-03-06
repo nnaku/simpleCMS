@@ -10,8 +10,10 @@ FLUSH PRIVILEGES;
 
 
 POST new article
-```api/article```` 
+```api/article```
+
 POST body as JSON
+
 ```
 {
 	"header":"This is header",
@@ -22,8 +24,10 @@ POST body as JSON
 ```
 
 POST new comment
-```api/comment```` 
+```api/comment``` 
+
 POST body as JSON
+
 ```
 {
 	"article":"{article url eq. /1}",
