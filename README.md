@@ -11,8 +11,7 @@ FLUSH PRIVILEGES;
 
 POST new article
 ```api/article```
-
-POST body as JSON
+body as JSON
 
 ```
 {
@@ -25,8 +24,7 @@ POST body as JSON
 
 POST new comment
 ```api/comment``` 
-
-POST body as JSON
+body as JSON
 
 ```
 {
