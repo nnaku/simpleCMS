@@ -7,7 +7,15 @@ CREATE USER 'simpleCMS'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON simpleCMS . * TO 'simpleCMS'@'localhost';
 FLUSH PRIVILEGES;
 ```
+# restAPI
+Port and pase url
+```
+:8080/api/
+```
 
+api works with GET, POST, PUT, DELETE methods
+
+### example
 
 POST new article
 ```api/article```
