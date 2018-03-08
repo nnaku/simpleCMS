@@ -24,7 +24,7 @@ public class RestConfig extends RepositoryRestConfigurerAdapter{
 	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
         config.returnBodyOnUpdate("Accept=application/json");
         config.returnBodyOnCreate("Accept=application/json");
-        config.useHalAsDefaultJsonMediaType(false);
+
         // REST base url
         config.setBasePath("/api");
        

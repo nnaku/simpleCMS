@@ -3,9 +3,9 @@ package simpleCMS.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "comment")
+@Table(name = "comments")
 public class Comment{
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(nullable = false, unique = true, updatable = false)

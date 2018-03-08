@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "article")
+@Table(name = "articles")
 public class Article {
 
 	@Id
@@ -32,9 +32,8 @@ public class Article {
 	@OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
 	private List<Comment> comments;
 	
-	@SuppressWarnings("unused")
 	private int commentCount;
-
+	
 	public Article() {
 		super();
 	}
@@ -113,8 +112,12 @@ public class Article {
 		this.author = author;
 	}
 	
+	public int setCommentCount() {
+		return this.commentCount = comments.size();
+	}
+	
 	public int getCommentCount() {
-		return comments.size();
+		return commentCount;
 	}
 
 }
