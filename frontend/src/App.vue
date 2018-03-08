@@ -1,5 +1,6 @@
 <template>
   <div id="simpleCMS">
+    <appNav/>
     <!--
       The <router-view> component is a functional component
       that renders the matched component for the given path.
@@ -11,8 +12,16 @@
 </template>
 
 <script>
+import appNav from './components/Navbar.vue'
+
 export default {
-  name: 'simpleCMS'
+  name: 'simpleCMS',
+  data () {
+    return{
+
+    }
+  },
+  components:{appNav}
 }
 </script>
 
@@ -27,6 +36,7 @@ html,body{
 #simpleCMS{
   width: 80%;
   max-width: 960px;
+  margin: 0px auto;
 }
 
 /* font yms globaalit tänne*/

@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router' // Library imports. 
+import router from './router' // Library imports.
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import moment from 'vue-moment'
@@ -20,6 +20,6 @@ Vue.config.productionTip = false // Enables vue dev tools in browser.
 new Vue({ // Every Vue application starts by creating a new Vue instance with the Vue function.
   el: '#app',
   router,
-  components: { App },
+  components: {App},
   template: '<App/>'
 })
