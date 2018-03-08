@@ -5,7 +5,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import simpleCMS.model.Article;
 
-@RepositoryRestResource(collectionResourceRel = "article", path = "/article")
+@RepositoryRestResource(path = "/articles")
 public interface ArticleRepository extends PagingAndSortingRepository<Article, Long> {
-
+	
 }

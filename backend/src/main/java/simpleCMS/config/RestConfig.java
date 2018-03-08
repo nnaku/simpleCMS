@@ -22,10 +22,9 @@ public class RestConfig extends RepositoryRestConfigurerAdapter{
 
 	@Override
 	public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config) {
-		// REST requires Accept : application/json header.
         config.returnBodyOnUpdate("Accept=application/json");
         config.returnBodyOnCreate("Accept=application/json");
-        
+        config.useHalAsDefaultJsonMediaType(false);
         // REST base url
         config.setBasePath("/api");
        
@@ -49,6 +48,7 @@ public class RestConfig extends RepositoryRestConfigurerAdapter{
 //	}
 	
 	// Enable CORS globally, for dev live server
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Bean
 	public FilterRegistrationBean corsFilter() {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

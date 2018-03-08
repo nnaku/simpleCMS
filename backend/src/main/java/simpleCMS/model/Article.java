@@ -32,6 +32,7 @@ public class Article {
 	@OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
 	private List<Comment> comments;
 	
+	@SuppressWarnings("unused")
 	private int commentCount;
 
 	public Article() {
