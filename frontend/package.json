@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "1.0.0",
   "description": "simpleCMS UI",
-  "author": "Aku Kangas <aku.kangas@metropolia.fi>",
+  "author": "",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

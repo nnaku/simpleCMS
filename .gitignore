@@ -101,9 +101,9 @@ buildNumber.properties
 
 ### NetBeans ###
 nbproject/private/
-build/
+backend/build/
 nbbuild/
-dist/
+backend/dist/
 nbdist/
 .nb-gradle/
 nbactions.xml
