@@ -1,12 +1,22 @@
 <template>
-  <div id="home">
-    <ul id="articles-list">
-      <router-link
-        class="article-link"
-        tag="li"
-        :to="{name: 'article',params: {articleId: article.id}}"
-        v-bind:key='article.id'
-        v-for="(article) in articles">
+  <div id="home"> <!-- component wrap -->
+    <ul id="articles-list"> <!-- articles ul -->
+      <!--
+        router link, to article
+        tag transforms router-link to li in dom
+        v-bind:key is requred by for-loop
+        v-for basic for loop trought articles array
+
+      
+      
+      -->
+      <router-link 
+      tag="li" 
+      class="article-link"
+      v-bind:key='article.id'
+      v-bind:to="{name: 'article',params: {articleId: article.id}}"
+      v-for="(article) in articles">
+      
         <h1 class="article-head">{{article.header}}</h1>
         <div class="article-info">
           <p class="article-time">{{article.created}}</p>
