@@ -1,5 +1,6 @@
 <template>
    <div id="new-article">
+    <h1>New Article</h1>
     <form v-on:submit.prevent="postNewArticle()" class="new-article-form">
       <div class="form-row">
         <input v-model="article.header" type="text" placeholder="Article header" required>

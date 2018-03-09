@@ -1,5 +1,5 @@
 <template>
-  <div id='articleView'>
+  <div id='article-view'>
     <h1 class="article-header">{{article.header}}</h1>
     <div class="article-info">
       <div class="article-time">
@@ -9,23 +9,16 @@
       <div class="article-author">{{article.author}}</div>
     </div>
     <div class="aticle-body" v-html="article.body"/>
-    <div>leave a comment form</div>
-    <ul id="comments-list">
-    <li class="comment"
-        v-bind:key='comment.id'
-        v-for="(comment) in comments">
-        <div class="comment-body" >{{comment.body}}</div>
-        <div class="article-author">{{comment.author}}</div>
-        <p class="created-modified" v-if="comment.modified">{{comment.modified}} modified</p>
-        <p class="created-created" v-else>{{comment.created}}</p>
-        
-      </li>
-    </ul>
+    <commentForm :articleID="this.$route.params.articleId"/>
+    <commentList :articleID="this.$route.params.articleId"/>
   </div>
 </template>
 <script>
+import commentList from '@/components/Comment/CommentList'
+import CommentForm from '@/components/Comment/CommentForm'
+
 export default {
-  name: "articleView",
+  name: "article",
   props: [],
   data() {
     return {
@@ -45,22 +38,14 @@ export default {
         .catch(error => {
           console.log(error);
         });
-    },
-    getComments() {
-      this.axios
-        .get("/articles/" + this.$route.params.articleId + "/comments")
-        .then(response => {
-          console.log(response.data);
-          this.comments = response.data._embedded.comments;
-        })
-        .catch(error => {
-          console.log(error);
-        });
     }
   },
   beforeMount() {
     this.getArticle();
-    this.getComments();
+  },
+  components:{
+    commentList,
+    CommentForm
   }
 };
 </script>
@@ -70,5 +55,9 @@ export default {
   list-style-type: none;
   max-width: 300px;
   margin: 0 auto;
+}
+/* child component */
+#new-commment{
+  max-width: 300px;
 }
 </style>

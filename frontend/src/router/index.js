@@ -1,14 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
-import Articles from '@/components/Articles'
-import Article from '@/components/Article'
-import NewArticle from '@/components/NewArticle'
+
+import Article from '@/components/Article/Article'
+import ArticleList from '@/components/Article/ArticleList'
+import ArticleForm from '@/components/Article/ArticleForm'
+
+import Comment from '@/components/Comment/Comment'
+import CommentList from '@/components/Comment/CommentList'
+import CommentForm from '@/components/Comment/CommentForm'
 
 Vue.use(Router)
 
 export default new Router({
-  mode:'history',
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -16,19 +21,31 @@ export default new Router({
       component: Home
     },
     {
-      path: '/articles',
-      name: 'articles',
-      component: Articles
-    },
-    {
       path: '/article/:articleId',
       name: 'article',
       component: Article
     },
     {
+      path: '/articles',
+      name: 'article-list',
+      component: ArticleList
+    },
+    {
       path: '/new-article',
-      name: 'newArticle',
-      component: NewArticle
+      name: 'new-article-form',
+      component: ArticleForm
+    }, {
+      path: '/comment',
+      name: 'comment',
+      component: Comment
+    }, {
+      path: '/commentlist',
+      name: 'comment-list',
+      component: CommentList
+    }, {
+      path: '/commentform',
+      name: 'new-comment-form',
+      component: CommentForm
     }
   ]
 })

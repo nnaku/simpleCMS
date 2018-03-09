@@ -2,8 +2,8 @@
   <div id='navbar'>
     <ul>
       <li class="left"><router-link tag="a" class="active nav-link" :to="{name: 'home'}">Home</router-link></li>
-      <li class="left"><router-link tag="a" class="nav-link" :to="{name: 'articles'}">Articles</router-link></li>
-      <li class="right"><router-link tag="a" class="nav-link" :to="{name: 'newArticle'}">Write a new article</router-link></li>
+      <li class="left"><router-link tag="a" class="nav-link" :to="{name: 'article-list'}">Articles</router-link></li>
+      <li class="right"><router-link tag="a" class="nav-link" :to="{name: 'new-article-form'}">Write a new article</router-link></li>
     </ul>
   </div>
 </template>
@@ -11,14 +11,6 @@
 <script>
 export default {
   name: 'navbar',
-  props: [],
-  data () {
-    return {}
-  },
-  computed: {
-  },
-  methods: {
-  }
 }
 </script>
 
