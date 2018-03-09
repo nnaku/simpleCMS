@@ -9,9 +9,9 @@
 
 <script>
 export default {
-  name: 'comment',
-  props: ['comment'],
-}
+  name: "comment",
+  props: ["comment"]
+};
 </script>
 
 <style scoped>

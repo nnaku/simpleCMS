@@ -24,7 +24,7 @@ export default {
   methods: {
     postNewComment() {
       console.log(this.comment);
-      //TODO: axios 
+      //TODO: axios
     }
   }
 };

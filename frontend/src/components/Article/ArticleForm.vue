@@ -37,8 +37,8 @@ export default {
       if (!this.article) return false;
       if (!this.article.header) return false;
       if (!this.article.preview) return false;
-      if (!this.article.body){
-        this.article.body = ''
+      if (!this.article.body) {
+        this.article.body = "";
         return false;
       }
       if (!this.article.author) return false;
@@ -78,7 +78,7 @@ textarea {
 .form-row {
   width: 100%;
 }
-.error{
-  color: red
+.error {
+  color: red;
 }
 </style>

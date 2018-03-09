@@ -13,14 +13,14 @@
   </div>
 </template>
 <script>
-import comment from '@/components/Comment/Comment'
+import comment from "@/components/Comment/Comment";
 
 export default {
   name: "comment-list",
-  props: ['articleID'],
+  props: ["articleID"],
   data() {
     return {
-      comments:[]
+      comments: []
     };
   },
   beforeMount() {
@@ -34,14 +34,14 @@ export default {
         console.log(error);
       });
   },
-  components:{
+  components: {
     comment
   }
 };
 </script>
 
 <style scoped>
-ul{
+ul {
   list-style-type: none;
   padding: 0;
 }

@@ -12,39 +12,31 @@
 </template>
 
 <script>
-import appNav from './components/Navbar.vue'
+import appNav from "./components/Navbar.vue";
 
 export default {
-  name: 'simpleCMS',
-  data () {
-    return{
-
-    }
-  },
-  components:{appNav}
-}
+  name: "simpleCMS",
+  components: { appNav }
+};
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
 
-*{
+* {
   box-sizing: border-box;
 }
-
-html,body{
+html,
+body {
   margin: 0;
   padding: 0;
 }
-#simpleCMS{
+#simpleCMS {
   width: 80%;
   max-width: 960px;
   margin: 0px auto;
-  font-family: 'Varela Round', Helvetica, Arial, sans-serif;
+  font-family: "Varela Round", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-/* font yms globaalit tänne*/
-
 </style>

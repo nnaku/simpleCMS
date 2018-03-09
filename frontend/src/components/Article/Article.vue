@@ -13,37 +13,31 @@
     <commentList/>
   </div>
 </template>
+
 <script>
-import commentList from '@/components/Comment/CommentList'
-import CommentForm from '@/components/Comment/CommentForm'
+import commentList from "@/components/Comment/CommentList";
+import CommentForm from "@/components/Comment/CommentForm";
 
 export default {
   name: "article",
-  props: [],
   data() {
     return {
       article: "",
       comments: ""
     };
   },
-  computed: {},
-  methods: {
-    getArticle() {
-      this.axios
-        .get("/articles/" + this.$route.params.articleId)
-        .then(response => {
-          console.log(response.data);
-          this.article = response.data;
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    }
-  },
   beforeMount() {
-    this.getArticle();
+    this.axios
+      .get("/articles/" + this.$route.params.articleId)
+      .then(response => {
+        console.log(response.data);
+        this.article = response.data;
+      })
+      .catch(error => {
+        console.log(error);
+      });
   },
-  components:{
+  components: {
     commentList,
     CommentForm
   }

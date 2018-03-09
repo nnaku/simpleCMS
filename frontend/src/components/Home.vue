@@ -7,20 +7,12 @@
 
 <script>
 export default {
-  name: 'home',
-  props: [],
-  data () {
-    return {}
-  },
-  computed: {
-  },
-  methods: {
-  }
-}
+  name: "home"
+};
 </script>
 
 <style scoped>
-img{
+img {
   width: 100%;
   margin: 15px 0;
 }
