@@ -26,9 +26,12 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
 *{
   box-sizing: border-box;
 }
+
 html,body{
   margin: 0;
   padding: 0;
@@ -37,6 +40,9 @@ html,body{
   width: 80%;
   max-width: 960px;
   margin: 0px auto;
+  font-family: 'Varela Round', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* font yms globaalit tänne*/

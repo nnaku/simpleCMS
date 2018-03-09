@@ -10,12 +10,12 @@
         v-for reqular forEach loop trought articles array
       -->
       <router-link 
-      tag="li" 
-      class="article-link"
-      :key='article.id'
-      :to="{name: 'article',params: {articleId: article.id}}"
-      v-for="(article) in articles">
-      
+        tag="li" 
+        class="article-link"
+        :key='article.id'
+        :to="{name: 'article',params: {articleId: article.id}}"
+        v-for="(article) in articles"
+        >
         <h1 class="article-head">{{article.header}}</h1> <!-- {{what.ever.var}} varible binding at template-->
         <div class="article-info">
           <p class="article-time">{{article.created | moment('L')}}</p>
@@ -52,44 +52,12 @@ export default {
 </script>
 
 <style scoped>
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-
-#articles-list {
+ul{
   list-style-type: none;
-  max-width: 300px;
-  margin: 0 auto;
+  padding: 0;
 }
-.article-link {
-  text-decoration: none;
-  color: black;
-}
-.article-link:hover {
-  background-color: rgba(211, 211, 211, 0.3);
+li:hover{
   cursor: pointer;
-}
-
-.article-head {
-}
-
-.article-info {
-  widows: 100%;
-}
-
-.article-time {
-  width: 50%;
-  float: left;
-}
-
-.article-author {
-  width: 50%;
-  float: left;
-}
-
-.article-preview {
+  background-color: rgba(0, 0, 0, 0.05)
 }
 </style>

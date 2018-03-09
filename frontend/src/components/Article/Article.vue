@@ -9,8 +9,8 @@
       <div class="article-author">{{article.author}}</div>
     </div>
     <div class="aticle-body" v-html="article.body"/>
-    <commentForm :articleID="this.$route.params.articleId"/>
-    <commentList :articleID="this.$route.params.articleId"/>
+    <commentForm/>
+    <commentList/>
   </div>
 </template>
 <script>
@@ -51,13 +51,5 @@ export default {
 </script>
 
 <style scoped>
-#comments-list {
-  list-style-type: none;
-  max-width: 300px;
-  margin: 0 auto;
-}
-/* child component */
-#new-commment{
-  max-width: 300px;
-}
+
 </style>

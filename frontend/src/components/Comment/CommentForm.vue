@@ -12,11 +12,10 @@
 <script>
 export default {
   name: "new-commment-form",
-  props: ['articleID'],
   data() {
     return {
       comment: {
-        article: this.articleID,
+        article: this.$route.params.articleId,
         body: "",
         author: ""
       }
@@ -34,11 +33,6 @@ export default {
 <style scoped>
 .form-row {
   width: 100%;
-  height: 38px;
-  margin: 10px auto;
-}
-input {
-  font-size: 20px;
 }
 textarea {
   width: inherit;

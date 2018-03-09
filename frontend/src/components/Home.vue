@@ -1,6 +1,7 @@
 <template>
   <div id='home'>
-    this is awesome app
+    <img src="../img/main.jpg">
+    this is an awesome content management system
   </div>
 </template>
 
@@ -19,7 +20,8 @@ export default {
 </script>
 
 <style scoped>
-#home{
-  text-align: center;
+img{
+  width: 100%;
+  margin: 15px 0;
 }
 </style>

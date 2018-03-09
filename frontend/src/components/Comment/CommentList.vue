@@ -17,7 +17,7 @@ import comment from '@/components/Comment/Comment'
 
 export default {
   name: "comment-list",
-  props: [],
+  props: ['articleID'],
   data() {
     return {
       comments:[]
@@ -41,5 +41,8 @@ export default {
 </script>
 
 <style scoped>
-
+ul{
+  list-style-type: none;
+  padding: 0;
+}
 </style>
