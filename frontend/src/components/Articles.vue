@@ -18,7 +18,7 @@
       
         <h1 class="article-head">{{article.header}}</h1> <!-- {{what.ever.var}} varible binding at template-->
         <div class="article-info">
-          <p class="article-time">{{article.created}}</p>
+          <p class="article-time">{{article.created | moment('L')}}</p>
           <p class="article-author">{{article.author}}</p>
         </div>
         <p class="article-preview">{{article.preview}}</p>
