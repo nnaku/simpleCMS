@@ -9,13 +9,13 @@
         v-model="article.preview"
         placeholder="Article abstract"
         />
-      <div class="form-row">
+      <div class="form-row-vue-editor">
         <label v-if="!error" for="body">Article body</label>
         <label v-else class="error" for="body">Maybe you like to say something at here?</label>
         <vue-editor id="body" v-model="article.body"/>
       </div>
       <input class="form-row" v-model="article.author" type="text" placeholder="Author" required>
-      <button class="form-row" type="submit">Publish</button>
+      <button class="form-row" id="form-submit" type="submit">Publish</button>
     </form>
    </div>
  </template>
@@ -37,6 +37,7 @@ export default {
       if (!this.article) return false;
       if (!this.article.header) return false;
       if (!this.article.preview) return false;
+      // FIX: Article body check not working
       if (!this.article.body) {
         this.article.body = "";
         return false;
@@ -76,7 +77,35 @@ textarea {
   resize: none;
 }
 .form-row {
+  outline: none;
   width: 100%;
+  padding: 12px 10px;
+  margin: 8px 0;
+  border: 2px solid #ffbc0c;
+  border-radius: 2px;
+  background-color: #262626;
+  color: #fff;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.form-row-vue-editor {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+#form-submit {
+  border: 0;
+  margin-bottom: 50px;
+  background-color: #ffbc0c;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#form-submit:hover {
+  cursor: pointer;
+  background-color: rgba(255, 186, 12, 0.5);
+  color: rgba(255, 255, 255, 0.5);
 }
 .error {
   color: red;

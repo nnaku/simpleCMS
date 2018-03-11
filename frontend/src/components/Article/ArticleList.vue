@@ -18,8 +18,7 @@
         >
         <h1 class="article-head">{{article.header}}</h1> <!-- {{what.ever.var}} varible binding at template-->
         <div class="article-info">
-          <p class="article-time">{{article.created | moment('L')}}</p>
-          <p class="article-author">{{article.author}}</p>
+          <p>Posted on <span class="article-time">{{article.created | moment('L')}}</span> by <span class="article-author">{{article.author}}</span></p>
         </div>
         <p class="article-preview">{{article.preview}}</p>
       </router-link>
@@ -28,7 +27,7 @@
 </template>
 
 <script>
-export default { 
+export default {
   name: "home",
   data() {
     return {
@@ -36,7 +35,8 @@ export default {
       page: {}
     };
   },
-  beforeMount() {  // Called right before the mounting begins: the render function is about to be called for the first time.
+  beforeMount() {
+    // Called right before the mounting begins: the render function is about to be called for the first time.
     this.axios // axios is js library for xhr
       .get("/articles")
       .then(response => {
@@ -52,12 +52,28 @@ export default {
 </script>
 
 <style scoped>
-ul{
+.article-info {
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: -22px;
+  font-size: 13px;
+}
+ul {
   list-style-type: none;
   padding: 0;
 }
-li:hover{
+
+li {
+  color: #fff;
+  margin: 20px 10px 0px 10px;
+  padding: 15px 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+li:hover {
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.05)
+  color: #ffbc0c;
+}
+li:hover > .article-preview {
+  color: rgba(255, 255, 255, 1);
 }
 </style>

@@ -3,24 +3,24 @@
     <ul>
       <li class="left"><router-link tag="a" class="active nav-link" :to="{name: 'home'}">Home</router-link></li>
       <li class="left"><router-link tag="a" class="nav-link" :to="{name: 'article-list'}">Articles</router-link></li>
-      <li class="right"><router-link tag="a" class="nav-link" :to="{name: 'new-article-form'}">Write a new article</router-link></li>
+      <li class="right"><router-link tag="a" class="nav-link" :to="{name: 'new-article-form'}">New Article</router-link></li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'navbar',
-}
+  name: "navbar"
+};
 </script>
 
 <style scoped>
-#navbar{
-  margin-top: 10px;
+#navbar {
+  margin-top: 15px;
   width: 100%;
-  border: 1px solid rgba(0, 0, 0, 0.45);
+  border-bottom: 3px solid #ffbc0c;
 }
-ul{
+ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -29,17 +29,21 @@ ul{
   position: sticky;
   top: 0;
 }
-li a{
+li a {
+  font-size: 26px;
   display: block;
-  color:rgba(0, 0, 0, 0.75);
+  color: #ffbc0c;
   text-align: center;
   padding: 10px 16px;
   text-decoration: none;
 }
-.left{
+.left {
   float: left;
 }
-.right{
+.right {
   float: right;
+}
+.nav-link:hover {
+  color: rgba(255, 186, 12, 0.5);
 }
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div id='home'>
     <img src="../img/main.jpg">
-    this is an awesome content management system
   </div>
 </template>
 
