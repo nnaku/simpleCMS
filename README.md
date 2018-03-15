@@ -9,6 +9,7 @@ FLUSH PRIVILEGES;
 ```
 #### build front and copy files
 node >= 6.0.0 required!
+
 npm >= 3.0.0 required!
 ```bash
 cd frontend
