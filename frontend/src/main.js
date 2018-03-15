@@ -8,9 +8,9 @@ import VueAxios from 'vue-axios'
 import moment from 'vue-moment'
 
 Vue.use(VueAxios,axios.create({ // Use plugins by calling the Vue.use() global method. 
-  baseURL: 'http://localhost:8080/api/', // You can optionally pass in some options.
+  baseURL: 'http://localhost:8080/api', // You can optionally pass in some options.
   headers: {
-    'Access-Control-Allow-Origin': 'http://localhost:8081/api'
+    'Access-Control-Allow-Origin': 'http://localhost:8081'
   }
 }))
 

@@ -13,7 +13,7 @@
         tag="li" 
         class="article-link"
         :key='article.id'
-        :to="{name: 'article',params: {articleId: article.id}}"
+        :to="{name: 'articles',params: {articleId: article.id}}"
         v-for="(article) in articles"
         >
         <h1 class="article-head">{{article.header}}</h1> <!-- {{what.ever.var}} varible binding at template-->
@@ -38,9 +38,8 @@ export default {
   beforeMount() {
     // Called right before the mounting begins: the render function is about to be called for the first time.
     this.axios // axios is js library for xhr
-      .get("/articles")
+      .get("/articles?sort=id,desc")
       .then(response => {
-        console.log(response.data);
         this.page = response.data.page;
         this.articles = response.data._embedded.articles;
       })

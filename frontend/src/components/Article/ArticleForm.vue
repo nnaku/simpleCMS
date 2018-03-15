@@ -1,7 +1,7 @@
 <template>
    <div id="new-article">
     <h1>New Article</h1>
-    <form v-on:submit.prevent="postNewArticle()" class="new-article-form">
+    <form v-on:submit.prevent="subbmitForm()" class="new-article-form">
       <input class="form-row" v-model="article.header" type="text" placeholder="Article header" required>
       <textarea
         class="form-row"
@@ -14,8 +14,9 @@
         <label v-else class="error" for="body">Maybe you like to say something at here?</label>
         <vue-editor id="body" v-model="article.body"/>
       </div>
-      <input class="form-row" v-model="article.author" type="text" placeholder="Author" required>
-      <button class="form-row" id="form-submit" type="submit">Publish</button>
+      <input class="form-row" v-model="article.author" type="text" placeholder="Author" :disabled="editor" required>
+      <button v-if="editor" class="form-row" id="form-submit" type="submit">Save</button>
+      <button v-else class="form-row" id="form-submit" type="submit">Publish</button>
     </form>
    </div>
  </template>
@@ -24,11 +25,13 @@
 import { VueEditor } from "vue2-editor";
 
 export default {
-  name: "new-article",
+  name: "article-form",
+  props: ["data"],
   data() {
     return {
-      error: false,
-      article: {}
+      editor: false,
+      article: {},
+      error: false
     };
   },
   methods: {
@@ -45,24 +48,43 @@ export default {
       if (!this.article.author) return false;
       return true;
     },
-    postNewArticle() {
+    subbmitForm() {
       if (this.checkForm()) {
-        this.axios
-          .post("/articles", this.article)
-          .then(response => {
-            this.$router.push({
-              name: "article",
-              params: { articleId: response.data.id }
+        if (this.editor) {
+          this.axios
+            .put(this.$route.fullPath, this.article)
+            .then(response => {
+              this.$parent.editor = false
+              this.$parent.article = this.article
+            })
+
+            .catch(function(error) {
+              console.log(error);
             });
-            this.article = {};
-          })
-          .catch(function(error) {
-            console.log(error);
-          });
+        } else {
+          this.axios
+            .post("/articles", this.article)
+            .then(response => {
+              this.$router.push({
+                name: "articles",
+                params: { articleId: response.data.id }
+              });
+              this.article = {};
+            })
+            .catch(function(error) {
+              console.log(error);
+            });
+        }
       } else {
         this.error = true;
         console.log("Fill the from");
       }
+    }
+  },
+  created() {
+    if (this.data) {
+      this.article = this.data;
+      this.editor = true;
     }
   },
   components: {

@@ -1,12 +1,30 @@
 # simpleCMS
-
-init database
+### how to run 
+##### init database
 ```sql
 CREATE DATABASE simpleCMS;
 CREATE USER 'simpleCMS'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON simpleCMS . * TO 'simpleCMS'@'localhost';
 FLUSH PRIVILEGES;
 ```
+##### build front and copy files
+node/npm required!
+```shell
+cd frontend
+npm install
+npm run build
+cp -R dist/* ../backend/src/main/resources/public/
+```
+##### build backend jar
+JAVA jre required!
+
+JAVA_HOME environment variable MUST be set! Google it, 
+```shell
+cd backend
+mvn package
+```
+
+
 # restapi
 Port and base url
 ```

@@ -23,16 +23,20 @@ export default {
       comments: []
     };
   },
+  methods: {
+    getComments() {
+      this.axios
+        .get(this.$route.fullPath + "/comments")
+        .then(response => {
+          this.comments = response.data._embedded.comments;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  },
   beforeMount() {
-    this.axios
-      .get("/articles/" + this.$route.params.articleId + "/comments")
-      .then(response => {
-        console.log(response.data);
-        this.comments = response.data._embedded.comments;
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    this.getComments()
   },
   components: {
     comment

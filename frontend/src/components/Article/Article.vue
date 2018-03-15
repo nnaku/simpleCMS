@@ -1,36 +1,52 @@
 <template>
-  <div id='article-view'>
-    <h1 class="article-header">{{article.header}}</h1>
-    <div class="article-info">
-      <div class="article-time">
-        <p class="article-created">Created {{article.created | moment("lll")}}</p>
-        <p class="article-modified" v-if="article.modified">Modified {{article.created | moment("lll")}}</p>
-      </div>
-      <div class="article-author">By {{article.author}}</div>
+  <div id='article-frame'>
+    <div id='tools'>
+      <button v-if="!editor" @click="deleteArticle()">Delete this article</button>
+      <button v-if="!editor" @click="editArticle(true)">Edit this article</button>
+      <button v-else @click="editArticle(false)">Cancel edit</button>
     </div>
-    <div class="article-body" v-html="article.body"/>
-    <commentForm/>
-    <commentList/>
+    <articleFrom v-if="editor"  :data="article"/>
+    <articleDisplay v-else  :article="article"/>
+    <commentForm v-if="!editor"/>
+    <commentList v-if="!editor"/>
   </div>
 </template>
 
 <script>
 import commentList from "@/components/Comment/CommentList";
-import CommentForm from "@/components/Comment/CommentForm";
+import commentForm from "@/components/Comment/CommentForm";
+import articleDisplay from "@/components/Article/ArticleDisplay";
+import articleFrom from "@/components/Article/ArticleForm";
 
 export default {
-  name: "article",
+  name: "article-frame",
   data() {
     return {
-      article: "",
-      comments: ""
+      editor: false,
+      article: {}
     };
+  },
+  methods: {
+    editArticle(bool) {
+      this.editor = bool;
+    },
+    deleteArticle() {
+      this.axios
+        .delete("articles/" + this.$route.params.articleId)
+        .then(response => {
+          this.$router.push({
+            name: "article-list"
+          });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
   },
   beforeMount() {
     this.axios
-      .get("/articles/" + this.$route.params.articleId)
+      .get(this.$route.fullPath)
       .then(response => {
-        console.log(response.data);
         this.article = response.data;
       })
       .catch(error => {
@@ -39,7 +55,9 @@ export default {
   },
   components: {
     commentList,
-    CommentForm
+    commentForm,
+    articleDisplay,
+    articleFrom
   }
 };
 </script>
