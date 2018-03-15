@@ -17,7 +17,7 @@ npm run build
 cp -R dist/* ../backend/src/main/resources/public/
 ```
 #### build backend jar
-JAVA8 required! and set JAVA_HOME environment variable.
+JAVA 8 required and set JAVA_HOME environment variable.
 ```bash
 cd backend
 mvn package
@@ -33,8 +33,10 @@ localhost:8080
 
 ## REST API
 Port and base url ``` localhost:8080/api```
+
 #### GET
 ```/articles```  or ```/comments```  Returns one page and links to next and previous page
+
 ##### params
 * page ```?page=0```
 * * page number, first query returns page 0
@@ -44,9 +46,13 @@ Port and base url ``` localhost:8080/api```
 * * sort only id asc/desc implemented.
 ---------------
 ```/articles/{id} ``` Returns one article
+
 ```/articles/{id}/comments ``` Returns all comments of article
+
 ```/comments/{id} ``` Returns one comments
+
 ```/comments/{id}/article ``` Returns article of comment
+
 #### POST
 ```/articles```  or ```/comments```  Push new article or comment, body payload in json.
 
@@ -69,19 +75,27 @@ body for comment
 ```
 #### PATCH
 ```/articles/{id} ``` Edit article
+
 element (header, preview or body) and new value as json ```{"body":"string"}```
 
 ```/comments/{id} ``` Edit comment
+
 body and new value as json. ``` {"body":"string"}```
 
 #### PUT
 same as patch, but PUT method replaces entire entity, so all elements are required or they will be null
+
 ```/articles/{id} ``` Edit article
+
 ```/comments/{id} ``` Edit comment
+
 body same as in POST method
 
 #### DELETE 
 ```/articles ``` Delete all articles. NOT WORKING for atm.
+
 ```/comments ``` Delete all articles. NOT WORKING for atm.
+
 ```/articles/{id} ``` Delete one article
+
 ```/comments/{id} ``` Delete one comments
