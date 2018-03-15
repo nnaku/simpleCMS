@@ -18,7 +18,7 @@ npm run build
 cp -R dist/* ../backend/src/main/resources/public/
 ```
 #### build backend jar
-JAVA 8 required and set JAVA_HOME environment variable.
+Maven and JAVA 8 required!
 ```bash
 cd backend
 mvn package
